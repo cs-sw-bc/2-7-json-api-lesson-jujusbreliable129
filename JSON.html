@@ -22,6 +22,7 @@
     */
 
     // Step 1️⃣: Create a sample JSON as a string (how APIs usually send it)
+    //APIS/SERVERS RETURNS data that looks like below
     const jsonData = `{
       "name": "Whiskers",
       "age": 3,
@@ -34,6 +35,29 @@
       }
     }`;
 
+    //Json - but its actually string
+    //J+SON can take numbers, stings, boolean, arrays an other JSON objects
+
+    const obj = {
+      name: "Whiskers",
+      age: 3, 
+      isFriendly: true,
+    }
+
+    //Step 1: Convert JSON to JS object. Only then it will become usable
+    //
+    let receivedObject = JSON.parse(jsonData);
+    receivedObject.owner.firstName ="Julio";
+    receivedObject.owner.occupation = "Developer"
+
+    //Before sending data, conver JS objects to JSON (Universal format)
+let updatedJSON = JSON.stringify(receivedObject);
+let newJSON = JSON.stringify(obj);
+
+    /*Diferrences:
+    1. Single quote at the top - jsonData variables is a String
+    2. Doubles quotes for "name"
+*/
     console.log("Raw JSON (as text):");
     console.log(jsonData);
 
